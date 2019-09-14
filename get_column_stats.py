@@ -4,7 +4,18 @@ import argparse
 
 
 def calculate_stdev(vec):
-    try:
+    """ Compute standard deviation of a vector/list
+
+    Parameters
+    ----------
+    vec - takes vector of integers
+
+    Returns
+    ----------
+    stdev - standard deviation of the vec parameter
+
+    """
+    try:  # uses math library, gives standard deviation
         stdev = math.sqrt(sum([(mean-x)**2 for x in V]) / len(V))
         return stdev
     except Exception:
@@ -12,7 +23,18 @@ def calculate_stdev(vec):
 
 
 def calculate_mean(vec):
-    try:
+    """ Compute mean of a vector/list
+
+    Parameters
+    ----------
+    vec - takes vector of integers
+
+    Returns
+    ----------
+    mean - arithmetic mean of the vec parameter
+
+    """
+    try:  # computes basic arithmetic mean
         mean = sum(V) / len(V)
         return mean
     except Exception:
@@ -38,36 +60,36 @@ if __name__ == '__main__':
     file_name = args[0]
     col_num = args[1]
 
-    try:
+    try:  # code to open file
         file_f = open(file_name, 'r')
     except FileNotFoundError:
         print('file not found')
 
     vec_V = []
 
-    try:
+    try:  # code to assign column to var_V
         for l in file_f:
             A = [int(x) for x in l.split()]
             var_V.append(A[col_num])
     except Exception:
         print("error in trying to parse line to retrieve column")
 
-    try:
+    try:  # compute mean
         mean = calculate_mean(vec_V)
     except Exception:
         print("error in calling calculate_mean function")
 
-    try:
+    try:  # compute stdev
         stdev = calculate_stdev(vec_V)
     except Exception:
         print("error in calling calculate_stdev function")
 
-    try:
+    try:  # return calculated mean
         print('mean:', mean)
     except Exception:
         print("failed to print mean")
 
-    try:
+    try:  # return calculated stdev
         print('stdev:', stdev)
     except Exception:
         print("failed to print stdev")
