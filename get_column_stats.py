@@ -15,7 +15,13 @@ def calculate_stdev(vec):
     stdev - standard deviation of the vec parameter
 
     """
+    if(vec is None or len(vec) == 0):
+        raise Exception("empty vector")
+        sys.exit(1)
+    if(len(vec) == 1):
+        return "stdev of n=1 set is meaningless"
     try:  # uses math library, gives standard deviation
+        mean = calculate_mean(vec)
         stdev = math.sqrt(sum([(mean-x)**2 for x in vec]) / len(vec))
         return stdev
     except Exception:
@@ -34,11 +40,14 @@ def calculate_mean(vec):
     mean - arithmetic mean of the vec parameter
 
     """
+    if(vec is None or len(vec) == 0):
+        raise Exception("empty vector")
+        sys.exit(1)
     try:  # computes basic arithmetic mean
         mean = sum(vec) / len(vec)
         return mean
     except Exception:
-        "error in dividing sum of column by length of column"
+        print("error in dividing sum of column by length of column")
 
 
 if __name__ == '__main__':
