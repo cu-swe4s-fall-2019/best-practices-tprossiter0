@@ -18,6 +18,12 @@ python3 get_column_stats.py --input_filename data.txt --column_number 7
 
 The mean and standard deviation of the integers in column seven in data.txt should be printed.
 
+
+## Testing
+Basics_test.sh provides functional testing for get_column_stats.py using the Stupid Simple BaSh functional testing framework
+
+Basics.test.py provides unit testing of both methods in get_column_stats.py using Python's unittest framework
+
 ## Minimum Requirements to run
 
 - Python 3.7.4

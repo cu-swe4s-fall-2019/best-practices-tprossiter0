@@ -19,7 +19,7 @@ def calculate_stdev(vec):
         raise Exception("empty vector")
         sys.exit(1)
     if(len(vec) == 1):
-        return "stdev of n=1 set is meaningless"
+        return "stdev of 1el"
     try:  # uses math library, gives standard deviation
         mean = calculate_mean(vec)
         stdev = math.sqrt(sum([(mean-x)**2 for x in vec]) / len(vec))
