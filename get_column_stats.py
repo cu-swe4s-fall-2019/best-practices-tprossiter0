@@ -16,7 +16,7 @@ def calculate_stdev(vec):
 
     """
     try:  # uses math library, gives standard deviation
-        stdev = math.sqrt(sum([(mean-x)**2 for x in V]) / len(V))
+        stdev = math.sqrt(sum([(mean-x)**2 for x in vec]) / len(vec))
         return stdev
     except Exception:
         print("calculation of standard deviation failed")
@@ -35,7 +35,7 @@ def calculate_mean(vec):
 
     """
     try:  # computes basic arithmetic mean
-        mean = sum(V) / len(V)
+        mean = sum(vec) / len(vec)
         return mean
     except Exception:
         "error in dividing sum of column by length of column"
@@ -56,23 +56,24 @@ if __name__ == '__main__':
                         required=True)
 
     args = parser.parse_args()
-
-    file_name = args[0]
-    col_num = args[1]
+    print(args)
+    file_name = args.input_filename
+    col_num = args.column_number
 
     try:  # code to open file
         file_f = open(file_name, 'r')
     except FileNotFoundError:
         print('file not found')
-
+        sys.exit(1)
     vec_V = []
 
-    try:  # code to assign column to var_V
+    try:  # code to assign column to vec_V
         for l in file_f:
             A = [int(x) for x in l.split()]
-            var_V.append(A[col_num])
+            vec_V.append(A[col_num])
     except Exception:
         print("error in trying to parse line to retrieve column")
+        sys.exit(1)
 
     try:  # compute mean
         mean = calculate_mean(vec_V)
