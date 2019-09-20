@@ -56,15 +56,15 @@ if __name__ == '__main__':
                         required=True)
 
     args = parser.parse_args()
-
-    file_name = args[0]
-    col_num = args[1]
+    print(args)
+    file_name = args.input_filename
+    col_num = args.column_number
 
     try:  # code to open file
         file_f = open(file_name, 'r')
     except FileNotFoundError:
         print('file not found')
-
+        sys.exit(1)
     vec_V = []
 
     try:  # code to assign column to var_V
