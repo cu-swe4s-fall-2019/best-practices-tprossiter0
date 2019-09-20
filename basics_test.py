@@ -72,4 +72,4 @@ class TestCalc(unittest.TestCase):
 
     def test_stdev_1element(self):
         testvec = [0]
-        self.assertEqual(stat.calculate_stdev(testvec), "stdev of n=1 set is meaningless")
+        self.assertEqual(stat.calculate_stdev(testvec), "stdev of 1el")
